@@ -4,6 +4,10 @@ Keirokit KDE, KDE Plasma 6.7 ve üzerindeki Wayland oturumları için dinamik
 pencere döşeme ve ekran başına sanal masaüstü grupları sağlayan bir KWin
 betiğidir.
 
+
+> [!WARNING]
+> Keirokit KDE is currently experimental. Bugs and unexpected layout behavior may occur.
+
 ## Özellikler
 
 - `binary-split`, `master-stack`, `columns`, `rows` ve `monocle` yerleşimleri
@@ -144,6 +148,31 @@ CI; Ubuntu, Debian, Fedora ve Arch container'larında sözdizimi, XML/KConfig
 bağlantıları, Türkçe çeviri kataloğu, Python birim testleri, KWin davranış
 harness'ı, marka temizliği ve sürüm paketini doğrular. Gerçek çoklu ekranlı KWin
 davranışı ayrıca canlı Plasma oturumunda sınanmalıdır.
+
+
+## Compatibility
+
+Keirokit KDE has currently only been tested on Kubuntu, Fedora, and Arch Linux.
+
+It works as expected on Kubuntu and Arch Linux. Unfortunately, on Fedora, windows may not always be arranged correctly.
+
+Other distributions have not been tested yet.
+
+## Known Issues
+
+Keirokit KDE is still experimental, and there are some known issues:
+
+- Some layouts may not work correctly in all situations.
+- Closing windows can sometimes break the current layout.
+- Not every setting or configuration has been tested extensively. I have tested as much as I reasonably could, but some issues may still exist.
+
+If you encounter a problem, feel free to open an issue.
+
+## Project Status
+
+I'm not currently sure whether I will continue updating this project.
+
+However, if I see that there are enough people who genuinely want auto-tiling and scrolling window management on KDE Plasma, there is a good chance that I will continue working on it.
 
 ## Sorun giderme
 
