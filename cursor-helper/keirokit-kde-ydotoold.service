@@ -1,0 +1,18 @@
+[Unit]
+Description=Keirokit KDE private ydotool daemon
+ConditionPathExists=/dev/uinput
+
+[Service]
+Type=simple
+RuntimeDirectory=keirokit-kde
+RuntimeDirectoryMode=0700
+ExecStart=/usr/bin/ydotoold --socket-path=%t/keirokit-kde/ydotool.sock --socket-perm=0600
+Restart=on-failure
+RestartSec=2
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+
+[Install]
+WantedBy=default.target

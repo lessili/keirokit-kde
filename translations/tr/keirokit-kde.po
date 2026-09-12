@@ -1,0 +1,151 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Keirokit KDE 1.0.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-25 00:00+0300\n"
+"PO-Revision-Date: 2026-08-25 00:00+0300\n"
+"Last-Translator: Keirokit KDE contributors\n"
+"Language-Team: Turkish\n"
+"Language: tr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+msgid "Keirokit KDE Configuration"
+msgstr "Keirokit KDE Yapılandırması"
+
+msgid "Layouts"
+msgstr "Yerleşimler"
+
+msgid "Default layout:"
+msgstr "Varsayılan yerleşim:"
+
+msgid "Master area ratio:"
+msgstr "Ana alan oranı:"
+
+msgid "Number of master windows:"
+msgstr "Ana pencere sayısı:"
+
+msgid "Meta+Alt+Space cycles the layout of the active output and desktop only."
+msgstr "Meta+Alt+Space yalnızca etkin ekran ve masaüstünün yerleşimini sırayla değiştirir."
+
+msgid "Gaps"
+msgstr "Boşluklar"
+
+msgid "Between windows:"
+msgstr "Pencereler arası:"
+
+msgid "Outer — top:"
+msgstr "Dış — üst:"
+
+msgid "Outer — right:"
+msgstr "Dış — sağ:"
+
+msgid "Outer — bottom:"
+msgstr "Dış — alt:"
+
+msgid "Outer — left:"
+msgstr "Dış — sol:"
+
+msgid "Remove outer gaps when few windows are tiled (smart gaps)"
+msgstr "Az sayıda pencere döşendiğinde dış boşlukları kaldır (akıllı boşluklar)"
+
+msgid "Smart gaps threshold:"
+msgstr "Akıllı boşluk eşiği:"
+
+msgid "Outputs and Desktops"
+msgstr "Ekranlar ve Masaüstleri"
+
+msgid "Show each desktop only on its assigned output"
+msgstr "Her masaüstünü yalnızca atandığı ekranda göster"
+
+msgid "Each item uses output-name=desktops. Example: DP-2=1-4 and HDMI-A-1=5-8."
+msgstr "Her öğe ekran-adı=masaüstleri biçimini kullanır. Örnek: DP-2=1-4 ve HDMI-A-1=5-8."
+
+msgid "Ranges and commas are supported: DP-2=1-4,7"
+msgstr "Aralıklar ve virgüller desteklenir: DP-2=1-4,7"
+
+msgid "Optional layout overrides use output-name:desktop=layout. Layout names: binary-split, master-stack, columns, rows, monocle."
+msgstr "İsteğe bağlı yerleşim geçersiz kılmaları ekran-adı:masaüstü=yerleşim biçimini kullanır. Yerleşim adları: binary-split, master-stack, columns, rows, monocle."
+
+msgid "Example: HDMI-A-1:7=monocle"
+msgstr "Örnek: HDMI-A-1:7=monocle"
+
+msgid "Focus and Behavior"
+msgstr "Odak ve Davranış"
+
+msgid "Move the cursor to the center of a tiled window when keyboard focus changes"
+msgstr "Klavye odağı değiştiğinde imleci döşenmiş pencerenin merkezine taşı"
+
+msgid "Open new windows in the output and layout region under the cursor"
+msgstr "Yeni pencereleri imlecin altındaki ekran ve yerleşim bölgesinde aç"
+
+msgid "Toggle floating: Meta+Alt+F. Directional focus: Meta+Ctrl+Alt+H/J/K/L. Switch desktop: Meta+Shift+F1…F9. Move the window and follow it: Meta+Ctrl+Shift+F1…F9. Shortcuts can be changed on KDE's Global Shortcuts page."
+msgstr "Yüzen/döşenmiş durumunu değiştir: Meta+Alt+F. Yönlü odak: Meta+Ctrl+Alt+H/J/K/L. Masaüstünü değiştir: Meta+Shift+F1…F9. Pencereyi taşı ve izle: Meta+Ctrl+Shift+F1…F9. Kısayollar KDE Genel Kısayollar sayfasından değiştirilebilir."
+
+msgid "Exceptions"
+msgstr "İstisnalar"
+
+msgid "Each item is a case-insensitive regular expression matched against resourceClass, resourceName, and windowRole. Items starting with # or // are comments."
+msgstr "Her öğe resourceClass, resourceName ve windowRole alanlarıyla büyük/küçük harf duyarsız eşleştirilen bir düzenli ifadedir. # veya // ile başlayan öğeler yorumdur."
+
+msgid "Enter a regular expression, then press Enter or click Add."
+msgstr "Bir düzenli ifade yazın, ardından Enter tuşuna basın veya Ekle düğmesine tıklayın."
+
+msgid "Default layout algorithm"
+msgstr "Varsayılan yerleşim algoritması"
+
+msgid "Gap between tiled windows"
+msgstr "Döşenmiş pencereler arasındaki boşluk"
+
+msgid "Top outer gap"
+msgstr "Üst dış boşluk"
+
+msgid "Right outer gap"
+msgstr "Sağ dış boşluk"
+
+msgid "Bottom outer gap"
+msgstr "Alt dış boşluk"
+
+msgid "Left outer gap"
+msgstr "Sol dış boşluk"
+
+msgid "Remove outer gaps when few windows are tiled"
+msgstr "Az sayıda pencere döşendiğinde dış boşlukları kaldır"
+
+msgid "Smart gaps window threshold"
+msgstr "Akıllı boşluk pencere eşiği"
+
+msgid "Master area width ratio"
+msgstr "Ana alan genişlik oranı"
+
+msgid "Number of master windows"
+msgstr "Ana pencere sayısı"
+
+msgid "Keep each desktop on its assigned output"
+msgstr "Her masaüstünü atandığı ekranda tut"
+
+msgid "Output to virtual-desktop assignments"
+msgstr "Ekran ve sanal masaüstü atamaları"
+
+msgid "Use output-name=desktop-list. Commas and inclusive ranges are supported, for example DP-2=1-4."
+msgstr "ekran-adı=masaüstü-listesi biçimini kullanın. Virgüller ve kapsayıcı aralıklar desteklenir; örneğin DP-2=1-4."
+
+msgid "Per-output and per-desktop layout overrides"
+msgstr "Ekran ve masaüstü başına yerleşim geçersiz kılmaları"
+
+msgid "Use output-name:desktop-number=layout. Layout is binary-split, master-stack, columns, rows, or monocle."
+msgstr "ekran-adı:masaüstü-numarası=yerleşim biçimini kullanın. Yerleşim binary-split, master-stack, columns, rows veya monocle olabilir."
+
+msgid "Window identity regular-expression denylist"
+msgstr "Pencere kimliği düzenli ifade engel listesi"
+
+msgid "Each non-comment item is matched case-insensitively against resourceClass, resourceName, and windowRole. Lines starting with # or // are comments."
+msgstr "Yorum olmayan her öğe resourceClass, resourceName ve windowRole alanlarıyla büyük/küçük harf duyarsız eşleştirilir. # veya // ile başlayan satırlar yorumdur."
+
+msgid "Move the cursor when keyboard focus changes to a tiled window"
+msgstr "Klavye odağı döşenmiş bir pencereye geçtiğinde imleci taşı"
+
+msgid "Insert new tiled windows at the cursor location"
+msgstr "Yeni döşenmiş pencereleri imleç konumuna ekle"

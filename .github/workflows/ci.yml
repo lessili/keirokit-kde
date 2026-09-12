@@ -1,0 +1,51 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: ${{ matrix.name }}
+    runs-on: ubuntu-latest
+    container: ${{ matrix.image }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: Ubuntu
+            image: ubuntu:26.04
+            install: >-
+              apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y
+              nodejs python3 python3-dbus-next gettext libxml2-utils zip unzip tar
+          - name: Debian
+            image: debian:13
+            install: >-
+              apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y
+              nodejs python3 python3-dbus-next gettext libxml2-utils zip unzip tar
+          - name: Fedora
+            image: fedora:43
+            install: >-
+              dnf install -y nodejs python3 python3-dbus-next gettext libxml2 zip unzip tar gzip
+          - name: Arch
+            image: archlinux:latest
+            install: >-
+              pacman -Syu --noconfirm nodejs python python-dbus-next gettext libxml2 zip unzip tar gzip
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install test dependencies
+        run: ${{ matrix.install }}
+      - name: Run tests
+        run: bash tests/run.sh
+      - name: Build release artifacts
+        run: bash scripts/build-package.sh
+      - name: Verify package roots
+        run: |
+          unzip -l dist/*.kwinscript | grep -F metadata.json
+          unzip -l dist/*.kwinscript | grep -F contents/code/main.js
+          unzip -l dist/*.kwinscript | grep -F contents/locale/tr/LC_MESSAGES/keirokit-kde.mo
+          tar -tzf dist/*.tar.gz | grep -F /install.sh

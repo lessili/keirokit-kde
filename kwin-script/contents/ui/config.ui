@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>KeirokitKdeConfig</class>
+ <widget class="QWidget" name="KeirokitKdeConfig">
+  <property name="windowTitle">
+   <string>Keirokit KDE Configuration</string>
+  </property>
+  <layout class="QVBoxLayout" name="rootLayout">
+   <item>
+    <widget class="QTabWidget" name="settingsTabs">
+     <widget class="QWidget" name="layoutsTab">
+      <attribute name="title">
+       <string>Layouts</string>
+      </attribute>
+      <layout class="QFormLayout" name="layoutsForm">
+       <item row="0" column="0">
+        <widget class="QLabel" name="layoutAlgorithmLabel">
+         <property name="text">
+          <string>Default layout:</string>
+         </property>
+         <property name="buddy">
+          <cstring>kcfg_LayoutAlgorithm</cstring>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QComboBox" name="kcfg_LayoutAlgorithm">
+         <item><property name="text"><string>binary-split</string></property></item>
+         <item><property name="text"><string>master-stack</string></property></item>
+         <item><property name="text"><string>columns</string></property></item>
+         <item><property name="text"><string>rows</string></property></item>
+         <item><property name="text"><string>monocle</string></property></item>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="masterRatioLabel">
+         <property name="text">
+          <string>Master area ratio:</string>
+         </property>
+         <property name="buddy">
+          <cstring>kcfg_MasterRatio</cstring>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QSpinBox" name="kcfg_MasterRatio">
+         <property name="suffix"><string> %</string></property>
+         <property name="minimum"><number>10</number></property>
+         <property name="maximum"><number>90</number></property>
+         <property name="value"><number>60</number></property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QLabel" name="masterCountLabel">
+         <property name="text">
+          <string>Number of master windows:</string>
+         </property>
+         <property name="buddy">
+          <cstring>kcfg_MasterCount</cstring>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="QSpinBox" name="kcfg_MasterCount">
+         <property name="minimum"><number>1</number></property>
+         <property name="maximum"><number>10</number></property>
+         <property name="value"><number>1</number></property>
+        </widget>
+       </item>
+       <item row="3" column="0" colspan="2">
+        <widget class="QLabel" name="layoutCycleDescription">
+         <property name="text">
+          <string>Meta+Alt+Space cycles the layout of the active output and desktop only.</string>
+         </property>
+         <property name="wordWrap"><bool>true</bool></property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="gapsTab">
+      <attribute name="title">
+       <string>Gaps</string>
+      </attribute>
+      <layout class="QFormLayout" name="gapsForm">
+       <item row="0" column="0">
+        <widget class="QLabel" name="innerGapLabel">
+         <property name="text"><string>Between windows:</string></property>
+         <property name="buddy"><cstring>kcfg_InnerGap</cstring></property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QSpinBox" name="kcfg_InnerGap">
+         <property name="suffix"><string> px</string></property>
+         <property name="maximum"><number>200</number></property>
+         <property name="value"><number>8</number></property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="outerGapTopLabel">
+         <property name="text"><string>Outer — top:</string></property>
+         <property name="buddy"><cstring>kcfg_OuterGapTop</cstring></property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QSpinBox" name="kcfg_OuterGapTop">
+         <property name="suffix"><string> px</string></property>
+         <property name="maximum"><number>200</number></property>
+         <property name="value"><number>8</number></property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QLabel" name="outerGapRightLabel">
+         <property name="text"><string>Outer — right:</string></property>
+         <property name="buddy"><cstring>kcfg_OuterGapRight</cstring></property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="QSpinBox" name="kcfg_OuterGapRight">
+         <property name="suffix"><string> px</string></property>
+         <property name="maximum"><number>200</number></property>
+         <property name="value"><number>8</number></property>
+        </widget>
+       </item>
+       <item row="3" column="0">
+        <widget class="QLabel" name="outerGapBottomLabel">
+         <property name="text"><string>Outer — bottom:</string></property>
+         <property name="buddy"><cstring>kcfg_OuterGapBottom</cstring></property>
+        </widget>
+       </item>
+       <item row="3" column="1">
+        <widget class="QSpinBox" name="kcfg_OuterGapBottom">
+         <property name="suffix"><string> px</string></property>
+         <property name="maximum"><number>200</number></property>
+         <property name="value"><number>8</number></property>
+        </widget>
+       </item>
+       <item row="4" column="0">
+        <widget class="QLabel" name="outerGapLeftLabel">
+         <property name="text"><string>Outer — left:</string></property>
+         <property name="buddy"><cstring>kcfg_OuterGapLeft</cstring></property>
+        </widget>
+       </item>
+       <item row="4" column="1">
+        <widget class="QSpinBox" name="kcfg_OuterGapLeft">
+         <property name="suffix"><string> px</string></property>
+         <property name="maximum"><number>200</number></property>
+         <property name="value"><number>8</number></property>
+        </widget>
+       </item>
+       <item row="5" column="0" colspan="2">
+        <widget class="QCheckBox" name="kcfg_SmartGaps">
+         <property name="text"><string>Remove outer gaps when few windows are tiled (smart gaps)</string></property>
+         <property name="checked"><bool>false</bool></property>
+        </widget>
+       </item>
+       <item row="6" column="0">
+        <widget class="QLabel" name="smartGapsThresholdLabel">
+         <property name="text"><string>Smart gaps threshold:</string></property>
+         <property name="buddy"><cstring>kcfg_SmartGapsThreshold</cstring></property>
+        </widget>
+       </item>
+       <item row="6" column="1">
+        <widget class="QSpinBox" name="kcfg_SmartGapsThreshold">
+         <property name="minimum"><number>1</number></property>
+         <property name="maximum"><number>20</number></property>
+         <property name="value"><number>1</number></property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="desktopsTab">
+      <attribute name="title">
+       <string>Outputs and Desktops</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="desktopsLayout">
+       <item>
+        <widget class="QCheckBox" name="kcfg_EnforceOutputDesktopAssignments">
+         <property name="text"><string>Show each desktop only on its assigned output</string></property>
+         <property name="checked"><bool>true</bool></property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="assignmentsDescription">
+         <property name="text">
+          <string>Each item uses output-name=desktops. Example: DP-2=1-4 and HDMI-A-1=5-8.</string>
+         </property>
+         <property name="wordWrap"><bool>true</bool></property>
+        </widget>
+       </item>
+       <item>
+        <widget class="KEditListWidget" name="kcfg_OutputDesktopAssignments">
+         <property name="minimumSize"><size><width>500</width><height>150</height></size></property>
+         <property name="toolTip"><string>Ranges and commas are supported: DP-2=1-4,7</string></property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="overridesDescription">
+         <property name="text">
+          <string>Optional layout overrides use output-name:desktop=layout. Layout names: binary-split, master-stack, columns, rows, monocle.</string>
+         </property>
+         <property name="wordWrap"><bool>true</bool></property>
+        </widget>
+       </item>
+       <item>
+        <widget class="KEditListWidget" name="kcfg_LayoutOverrides">
+         <property name="minimumSize"><size><width>500</width><height>130</height></size></property>
+         <property name="toolTip"><string>Example: HDMI-A-1:7=monocle</string></property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="behaviorTab">
+      <attribute name="title">
+       <string>Focus and Behavior</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="behaviorLayout">
+       <item>
+        <widget class="QCheckBox" name="kcfg_MouseFollowsFocus">
+         <property name="text"><string>Move the cursor to the center of a tiled window when keyboard focus changes</string></property>
+         <property name="checked"><bool>true</bool></property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QCheckBox" name="kcfg_OpenAtCursor">
+         <property name="text"><string>Open new windows in the output and layout region under the cursor</string></property>
+         <property name="checked"><bool>true</bool></property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="shortcutsDescription">
+         <property name="text">
+          <string>Toggle floating: Meta+Alt+F. Directional focus: Meta+Ctrl+Alt+H/J/K/L. Switch desktop: Meta+Shift+F1…F9. Move the window and follow it: Meta+Ctrl+Shift+F1…F9. Shortcuts can be changed on KDE's Global Shortcuts page.</string>
+         </property>
+         <property name="wordWrap"><bool>true</bool></property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="behaviorSpacer">
+         <property name="orientation"><enum>Qt::Vertical</enum></property>
+         <property name="sizeHint" stdset="0"><size><width>20</width><height>40</height></size></property>
+        </spacer>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="exceptionsTab">
+      <attribute name="title">
+       <string>Exceptions</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="exceptionsLayout">
+       <item>
+        <widget class="QLabel" name="denylistDescriptionLabel">
+         <property name="text">
+          <string>Each item is a case-insensitive regular expression matched against resourceClass, resourceName, and windowRole. Items starting with # or // are comments.</string>
+         </property>
+         <property name="wordWrap"><bool>true</bool></property>
+        </widget>
+       </item>
+       <item>
+        <widget class="KEditListWidget" name="kcfg_WindowDenylist">
+         <property name="minimumSize"><size><width>500</width><height>260</height></size></property>
+         <property name="toolTip"><string>Enter a regular expression, then press Enter or click Add.</string></property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>KEditListWidget</class>
+   <extends>QWidget</extends>
+   <header>keditlistwidget.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>

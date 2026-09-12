@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kcfg xmlns="http://www.kde.org/standards/kcfg/1.0"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.kde.org/standards/kcfg/1.0
+                          http://www.kde.org/standards/kcfg/1.0/kcfg.xsd">
+    <group name="General">
+        <entry name="LayoutAlgorithm" type="Enum">
+            <label>Default layout algorithm</label>
+            <choices>
+                <choice name="BinarySplit">
+                    <label>binary-split</label>
+                </choice>
+                <choice name="MasterStack">
+                    <label>master-stack</label>
+                </choice>
+                <choice name="Columns">
+                    <label>columns</label>
+                </choice>
+                <choice name="Rows">
+                    <label>rows</label>
+                </choice>
+                <choice name="Monocle">
+                    <label>monocle</label>
+                </choice>
+            </choices>
+            <default>BinarySplit</default>
+        </entry>
+        <entry name="InnerGap" type="Int">
+            <label>Gap between tiled windows</label>
+            <default>8</default>
+            <min>0</min>
+            <max>200</max>
+        </entry>
+        <entry name="OuterGapTop" type="Int">
+            <label>Top outer gap</label>
+            <default>8</default>
+            <min>0</min>
+            <max>200</max>
+        </entry>
+        <entry name="OuterGapRight" type="Int">
+            <label>Right outer gap</label>
+            <default>8</default>
+            <min>0</min>
+            <max>200</max>
+        </entry>
+        <entry name="OuterGapBottom" type="Int">
+            <label>Bottom outer gap</label>
+            <default>8</default>
+            <min>0</min>
+            <max>200</max>
+        </entry>
+        <entry name="OuterGapLeft" type="Int">
+            <label>Left outer gap</label>
+            <default>8</default>
+            <min>0</min>
+            <max>200</max>
+        </entry>
+        <entry name="SmartGaps" type="Bool">
+            <label>Remove outer gaps when few windows are tiled</label>
+            <default>false</default>
+        </entry>
+        <entry name="SmartGapsThreshold" type="Int">
+            <label>Smart gaps window threshold</label>
+            <default>1</default>
+            <min>1</min>
+            <max>20</max>
+        </entry>
+        <entry name="MasterRatio" type="Int">
+            <label>Master area width ratio</label>
+            <default>60</default>
+            <min>10</min>
+            <max>90</max>
+        </entry>
+        <entry name="MasterCount" type="Int">
+            <label>Number of master windows</label>
+            <default>1</default>
+            <min>1</min>
+            <max>10</max>
+        </entry>
+        <entry name="EnforceOutputDesktopAssignments" type="Bool">
+            <label>Keep each desktop on its assigned output</label>
+            <default>true</default>
+        </entry>
+        <entry name="OutputDesktopAssignments" type="StringList">
+            <label>Output to virtual-desktop assignments</label>
+            <whatsthis>Use output-name=desktop-list. Commas and inclusive ranges are supported, for example DP-2=1-4.</whatsthis>
+            <default>// Format: output-name=desktops (numbers and ranges are supported),DP-2=1-4,HDMI-A-1=5-8</default>
+        </entry>
+        <entry name="LayoutOverrides" type="StringList">
+            <label>Per-output and per-desktop layout overrides</label>
+            <whatsthis>Use output-name:desktop-number=layout. Layout is binary-split, master-stack, columns, rows, or monocle.</whatsthis>
+            <default>// Format: output-name:desktop=layout,// Example: HDMI-A-1:7=monocle</default>
+        </entry>
+        <entry name="WindowDenylist" type="StringList">
+            <label>Window identity regular-expression denylist</label>
+            <whatsthis>Each non-comment item is matched case-insensitively against resourceClass, resourceName, and windowRole. Lines starting with # or // are comments.</whatsthis>
+            <default>krunner,plasmashell</default>
+        </entry>
+        <entry name="MouseFollowsFocus" type="Bool">
+            <label>Move the cursor when keyboard focus changes to a tiled window</label>
+            <default>true</default>
+        </entry>
+        <entry name="OpenAtCursor" type="Bool">
+            <label>Insert new tiled windows at the cursor location</label>
+            <default>true</default>
+        </entry>
+    </group>
+</kcfg>

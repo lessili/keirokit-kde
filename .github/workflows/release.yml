@@ -1,0 +1,29 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install build dependencies
+        run: sudo apt-get update && sudo apt-get install -y nodejs python3 python3-dbus-next gettext libxml2-utils zip
+      - name: Test
+        run: bash tests/run.sh
+      - name: Check tag and metadata version
+        run: |
+          metadata_version="$(python3 -c 'import json; print(json.load(open("kwin-script/metadata.json"))["KPlugin"]["Version"])')"
+          test "${GITHUB_REF_NAME}" = "v${metadata_version}"
+      - name: Build
+        run: bash scripts/build-package.sh
+      - name: Publish GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release create "${GITHUB_REF_NAME}" dist/* --generate-notes --verify-tag

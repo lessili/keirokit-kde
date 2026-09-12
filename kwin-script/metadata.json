@@ -1,0 +1,23 @@
+{
+    "KPackageStructure": "KWin/Script",
+    "KPlugin": {
+        "Authors": [
+            {
+                "Name": "Keirokit KDE contributors"
+            }
+        ],
+        "Category": "Window Management",
+        "Description": "Dynamic tiling, per-output desktop groups, spatial focus, follow-window desktop moves, smart gaps, and cursor integration for KWin 6.7+.",
+        "Description[tr]": "KWin 6.7+ için dinamik döşeme, ekran başına masaüstü grupları, uzamsal odak, pencereyi izleyen masaüstü geçişleri, akıllı boşluklar ve imleç bütünleştirmesi.",
+        "EnabledByDefault": true,
+        "Id": "keirokit-kde",
+        "License": "MIT",
+        "Name": "Keirokit KDE",
+        "Version": "1.0.1"
+    },
+    "X-KDE-ConfigModule": "kwin/effects/configs/kcm_kwin4_genericscripted",
+    "X-KWin-Config-TranslationDomain": "keirokit-kde",
+    "X-Plasma-API": "javascript",
+    "X-Plasma-API-Minimum-Version": "6.7",
+    "X-Plasma-MainScript": "code/main.js"
+}
