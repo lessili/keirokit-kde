@@ -1,125 +1,107 @@
 # Keirokit KDE
 
-Keirokit KDE, KDE Plasma 6.7 ve üzerindeki Wayland oturumları için dinamik
-pencere döşeme ve ekran başına sanal masaüstü grupları sağlayan bir KWin
-betiğidir.
-
+Keirokit KDE is a KWin script for KDE Plasma 6.7+ Wayland sessions that provides dynamic window tiling and per-monitor virtual desktop groups.
 
 > [!WARNING]
 > Keirokit KDE is currently experimental. Bugs and unexpected layout behavior may occur.
 
-## Özellikler
+## Features
 
-- `binary-split`, `master-stack`, `columns`, `rows` ve `monocle` yerleşimleri
-- Ekran/masaüstü bazında yerleşim seçimi
-- Ayrı iç ve dört kenarlı dış boşluk ayarları
-- Yapılandırılabilir smart gaps
-- Ekranlar arasında uzamsal klavye odağı
-- Pencereyle birlikte hedef masaüstüne ve ekrana geçiş
-- Yeni pencereyi imlecin bulunduğu tile'a ekleme
-- Sürükleyip bırakarak tile yer değiştirme
-- Regex tabanlı pencere istisnaları
-- İsteğe bağlı, Wayland uyumlu imleç takibi
+- `binary-split`, `master-stack`, `columns`, `rows`, and `monocle` layouts
+- Per-monitor and per-desktop layout selection
+- Separate inner gaps and four-sided outer gap settings
+- Configurable smart gaps
+- Spatial keyboard focus across monitors
+- Follow the target desktop and monitor when moving a window
+- Insert new windows into the tile under the cursor
+- Swap tiles using drag and drop
+- Regex-based window exceptions
+- Optional Wayland-compatible cursor tracking
 
-## Gereksinimler
+## Requirements
 
-- KDE Plasma/KWin 6.7 veya üzeri
-- Wayland oturumu
-- Bash, Python 3 ve systemd kullanıcı oturumu
-- Tam kurulum için `ydotool` 1.0.4+ ve Python `dbus-next`
+- KDE Plasma/KWin 6.7 or later
+- A Wayland session
+- Bash, Python 3, and a systemd user session
+- For the full installation: `ydotool` 1.0.4+ and Python `dbus-next`
 
-Plasma 6.7 şartı dağıtımdan bağımsızdır. Dağıtımınızın deposundaki Plasma daha
-eskiyse eklenti desteklenmez.
+The Plasma 6.7 requirement is distribution-independent. If the Plasma version in your distribution's repositories is older, the plugin is not supported.
 
-### İmleç entegrasyonu bağımlılıkları
+### Cursor integration dependencies
 
-| Dağıtım | Komut |
+| Distribution | Command |
 |---|---|
 | Ubuntu / Debian | `sudo apt update && sudo apt install ydotool python3-dbus-next` |
 | Fedora | `sudo dnf install ydotool python3-dbus-next` |
 | Arch | `sudo pacman -S --needed ydotool python-dbus-next` |
 
-Eski Ubuntu/Debian sürümlerinde daemon ayrı `ydotoold` paketinde olabilir;
-kurulum betiği binary eksikse bu paketi ayrıca kurar. 1.0.4 sağlamayan eski
-paketler desteklenmez.
+On older Ubuntu/Debian releases, the daemon may be provided by a separate `ydotoold` package; if the binary is missing, the installer will install that package as well. Older packages that do not provide version 1.0.4 are not supported.
 
-Kurulum betiği dağıtım ailesini `/etc/os-release` üzerinden tanır. Eksik
-paketleri yalnızca açıkça `--install-deps` verildiğinde kurar.
+The installer detects the distribution family through `/etc/os-release`. Missing packages are installed only when `--install-deps` is explicitly provided.
 
-Fedora, Qt 6 D-Bus aracını `qdbus6` yerine `qdbus-qt6` adıyla sağlar. Kurulum
-betiği iki adı ve dağıtıma özgü Qt 6 binary dizinlerini otomatik algılar. Araç
-ayrıca eksikse Fedora'da `sudo dnf install qt6-qttools` ile kurulabilir.
+Fedora provides the Qt 6 D-Bus tool as `qdbus-qt6` instead of `qdbus6`. The installer automatically detects both names and distribution-specific Qt 6 binary directories. If the tool is missing on Fedora, it can also be installed with `sudo dnf install qt6-qttools`.
 
-## Kaynaktan kurulum
+## Installing from source
 
-Normal Plasma kullanıcısıyla:
+As a regular Plasma user:
 
-Sürüm kaynak arşivini açın veya depoyu `keirokit-kde` dizinine klonladıktan
-sonra:
+Extract the release source archive or clone the repository into a `keirokit-kde` directory, then run:
 
 ```bash
 cd keirokit-kde
 ./install.sh --install-deps
 ```
 
-`/dev/uinput` erişimi yoksa güvenli aktif-oturum udev kuralını da kurun:
+If you do not have access to `/dev/uinput`, install the secure active-session udev rule as well:
 
 ```bash
 ./install.sh --with-udev-rule
 ```
 
-İmleç entegrasyonunu istemiyorsanız:
+If you do not want cursor integration:
 
 ```bash
 ./install.sh --skip-cursor-helper
 ```
 
-Kurulum, `keirokit-kde` KWin paketini kullanıcı hesabına kurar,
-gerekli ekran başına masaüstü ayarlarını açar ve betiği aynı oturumda başlatır.
-İmleç entegrasyonu dağıtımın sağladığı servis dosyasına bağlı değildir; kendi
-özel ydotoold servisini ve yalnızca kullanıcıya açık soketini kullanır.
+The installer installs the `keirokit-kde` KWin package for the current user, enables the required per-monitor desktop settings, and starts the script in the same session. Cursor integration does not depend on the distribution-provided service file; it uses its own dedicated ydotoold service and a socket accessible only to the user.
 
-## Sürüm paketini kurma
+## Installing a release package
 
-GitHub Releases sayfasındaki `.kwinscript` dosyası yalnızca KWin eklentisidir:
+The `.kwinscript` file on the GitHub Releases page contains only the KWin plugin:
 
 ```bash
 kpackagetool6 -t KWin/Script -i keirokit-kde-1.0.1.kwinscript
 ```
 
-Tam kurulum için sürümdeki `keirokit-kde-1.0.1.tar.gz` arşivini açıp
-`./install.sh` çalıştırın.
+For a full installation, extract the `keirokit-kde-1.0.1.tar.gz` archive from the release and run `./install.sh`.
 
-## Varsayılan kısayollar
+## Default shortcuts
 
-| Eylem | Kısayol |
+| Action | Shortcut |
 |---|---|
-| Sola/aşağı/yukarı/sağa odak | `Meta+Ctrl+Alt+H/J/K/L` |
-| Etkin ekran/masaüstü yerleşimini değiştir | `Meta+Alt+Space` |
-| Odaklı pencereyi float/tiled yap | `Meta+Alt+F` |
-| Masaüstü 1…9'u atandığı ekranda göster | `Meta+Shift+F1…F9` |
-| Aktif pencereyle masaüstü 1…9'a git | `Meta+Ctrl+Shift+F1…F9` |
+| Focus left/down/up/right | `Meta+Ctrl+Alt+H/J/K/L` |
+| Change the layout for the active monitor/desktop | `Meta+Alt+Space` |
+| Toggle the focused window between floating/tiled | `Meta+Alt+F` |
+| Show desktop 1…9 on its assigned monitor | `Meta+Shift+F1…F9` |
+| Move the active window to desktop 1…9 and follow it | `Meta+Ctrl+Shift+F1…F9` |
 
-Kısayollar Sistem Ayarları → Kısayollar → KWin bölümünde “Keirokit KDE”
-aranarak değiştirilebilir.
+Shortcuts can be changed by searching for “Keirokit KDE” under System Settings → Shortcuts → KWin.
 
-## Yapılandırma
+## Configuration
 
-Sistem Ayarları → Pencere Yönetimi → KWin Betikleri bölümündeki Keirokit KDE
-ayar düğmesi 16 ayarı canlı olarak uygular.
+The Keirokit KDE settings button under System Settings → Window Management → KWin Scripts applies 16 settings live.
 
-Ayar arayüzünün kaynak dili İngilizcedir. Plasma sistem dili Türkçe olduğunda
-birlikte gelen Türkçe çeviri otomatik kullanılır; dil, Sistem Ayarları → Bölge
-ve Dil bölümünden seçilir. Değişiklikten sonra Sistem Ayarları'nı yeniden açın.
+The source language of the settings interface is English. When Plasma's system language is Turkish, the bundled Turkish translation is used automatically. The language can be selected under System Settings → Region & Language. Reopen System Settings after changing the language.
 
-Ekran/masaüstü eşlemeleri `ekran-adı=masaüstleri` biçimindedir:
+Monitor/desktop mappings use the `monitor-name=desktops` format:
 
 ```text
 DP-2=1-4
 HDMI-A-1=5-8
 ```
 
-Yerleşim override'ları `ekran-adı:masaüstü=layout` biçimindedir:
+Layout overrides use the `monitor-name:desktop=layout` format:
 
 ```text
 DP-2:1=master-stack
@@ -127,7 +109,7 @@ DP-2:4=monocle
 HDMI-A-1:7=columns
 ```
 
-Ekran adlarını görmek için:
+To view monitor names:
 
 ```bash
 # Arch/Ubuntu/Debian
@@ -137,18 +119,14 @@ qdbus6 org.kde.KWin /KWin org.kde.KWin.supportInformation
 qdbus-qt6 org.kde.KWin /KWin org.kde.KWin.supportInformation
 ```
 
-## Doğrulama ve paketleme
+## Validation and packaging
 
 ```bash
 bash tests/run.sh
 bash scripts/build-package.sh
 ```
 
-CI; Ubuntu, Debian, Fedora ve Arch container'larında sözdizimi, XML/KConfig
-bağlantıları, Türkçe çeviri kataloğu, Python birim testleri, KWin davranış
-harness'ı, marka temizliği ve sürüm paketini doğrular. Gerçek çoklu ekranlı KWin
-davranışı ayrıca canlı Plasma oturumunda sınanmalıdır.
-
+CI validates syntax, XML/KConfig connections, the Turkish translation catalog, Python unit tests, the KWin behavior harness, branding checks, and the release package in Ubuntu, Debian, Fedora, and Arch containers. Real multi-monitor KWin behavior should also be tested in a live Plasma session.
 
 ## Compatibility
 
@@ -174,8 +152,7 @@ I'm not currently sure whether I will continue updating this project.
 
 However, if I see that there are enough people who genuinely want auto-tiling and scrolling window management on KDE Plasma, there is a good chance that I will continue working on it.
 
-## Sorun giderme
-
+## Troubleshooting
 ```bash
 journalctl --user -f -o cat | grep --line-buffered '\[Keirokit KDE\]'
 kpackagetool6 -t KWin/Script -l | grep keirokit-kde
@@ -183,10 +160,8 @@ systemctl --user status keirokit-kde-ydotoold.service
 systemctl --user status keirokit-kde-cursor-helper.service
 ```
 
-İmleç servisi ayrıntıları için [cursor-helper/README.md](cursor-helper/README.md)
-dosyasına bakın. Kaldırmak için `./uninstall.sh`; sistem udev kuralını da
-kaldırmak için `./uninstall.sh --remove-udev-rule` kullanın.
+For details about the cursor service, see [cursor-helper/README.md](cursor-helper/README.md). To uninstall Keirokit KDE, run `./uninstall.sh`; to also remove the system udev rule, run `./uninstall.sh --remove-udev-rule`.
 
-## Lisans
+## License
 
-MIT. Ayrıntılar [LICENSE](LICENSE) dosyasındadır.
+MIT. See the [LICENSE](LICENSE) file for details.
